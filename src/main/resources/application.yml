@@ -1,23 +1,22 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
-    username: username
-    password: password
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    show-sql: false
+  profiles:
+    active:
+      prod
+  mail:
+    host: mail.cdleldt.com
+    port: 587
+    username: support@cdleldt.com
+    password: IDon'tNeedPassword#$
     properties:
-      hibernate:
-        format_sql: true
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 application:
   security:
     jwt:
-      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
-      expiration: 86400000 # a day
+      secret-key: 5b9e706305ade9af4bb3028b2ab5368ed36842cd68f32c17e0f150256e815ba3
+      expiration: 3153600000000
       refresh-token:
-        expiration: 604800000 # 7 days
+        expiration: 3153600000000
