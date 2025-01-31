@@ -13,10 +13,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.Optional;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -68,6 +72,21 @@ public class AuthenticationService {
 
   public AuthenticationResponse registerWithGoogle(String token) {
     String email = fetchUserEmail(token);
+
+    Optional<User> byEmail =
+      repository.findByEmail(email);
+
+    if (byEmail.isPresent()) {
+      User user = byEmail.get();
+      List<Token> allValidTokenByUser = tokenRepository.findAllValidTokenByUser(user.getId());
+
+      if (!allValidTokenByUser.isEmpty()) {
+        Token token1 = allValidTokenByUser.get(0);
+        AuthenticationResponse authenticationResponse = new AuthenticationResponse();
+        authenticationResponse.setAccessToken(token1.getToken());
+        return authenticationResponse;
+      }
+    }
 
     var user = User.builder()
       .email(email)

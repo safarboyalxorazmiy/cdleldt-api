@@ -20,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CourseController {
   private final CourseContentService courseContentService;
+  private final CourseService courseService;
 
   @GetMapping("/themes/{courseId}")
   public ResponseEntity<List<CourseThemesDTO>> getThemes(@PathVariable Long courseId) {
@@ -30,6 +31,12 @@ public class CourseController {
   public ResponseEntity<CourseContentDTO> getCourseContentById(@PathVariable Long id) {
     return ResponseEntity.ok(courseContentService.getCourseContentById(id, getUser()));
   }
+
+  @GetMapping("/list")
+  public ResponseEntity<List<CourseResponseDTO>> getCourseList() {
+    return ResponseEntity.ok(courseService.getCourseResponse());
+  }
+
 
   private User getUser() {
     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

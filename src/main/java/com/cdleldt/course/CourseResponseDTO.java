@@ -1,16 +1,11 @@
 package com.cdleldt.course;
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table
-public class Course {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CourseResponseDTO {
   private Long id;
   private String courseCategory;
   private String title;
