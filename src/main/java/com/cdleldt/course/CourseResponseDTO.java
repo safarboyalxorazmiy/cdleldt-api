@@ -15,4 +15,5 @@ public class CourseResponseDTO {
   private String description3;
   private String description4;
   private Integer price;
+  private Integer discountPrice;
 }

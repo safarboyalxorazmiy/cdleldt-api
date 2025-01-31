@@ -31,7 +31,8 @@ public class SecurityApplication {
       course.setDescription2("1,200+ Reviews and Counting");
       course.setDescription3("Arrive confident, reduce anxiety, succeed at CDL school");
       course.setDescription4("Class A, Class B, Class B To A");
-      course.setPrice(25);
+      course.setPrice(75);
+      course.setDiscountPrice(25);
       courseRepository.save(course);
 
       course = new Course();
@@ -42,7 +43,8 @@ public class SecurityApplication {
       course.setDescription2("1,200+ Reviews and Counting");
       course.setDescription3("Written by Seasoned CDL Instructors");
       course.setDescription4("Class A, Class B, Class B To A");
-      course.setPrice(25);
+      course.setPrice(50);
+      course.setDiscountPrice(50);
       courseRepository.save(course);
 
       course = new Course();
@@ -53,7 +55,8 @@ public class SecurityApplication {
       course.setDescription2("Certification After Completion");
       course.setDescription3("Designed by Seasoned CDL Instructors");
       course.setDescription4("");
-      course.setPrice(25);
+      course.setPrice(55);
+      course.setDiscountPrice(25);
       courseRepository.save(course);
 
       course = new Course();
@@ -65,6 +68,7 @@ public class SecurityApplication {
       course.setDescription3("Designed by Seasoned CDL Instructors");
       course.setDescription4("");
       course.setPrice(25);
+      course.setDiscountPrice(25);
       courseRepository.save(course);
 
       course = new Course();
@@ -75,7 +79,8 @@ public class SecurityApplication {
       course.setDescription2("Certification After Completion");
       course.setDescription3("Designed by Seasoned CDL Instructors");
       course.setDescription4("");
-      course.setPrice(25);
+      course.setPrice(55);
+      course.setDiscountPrice(25);
       courseRepository.save(course);
 
       course = new Course();
@@ -87,6 +92,7 @@ public class SecurityApplication {
       course.setDescription3("Designed by Seasoned CDL Instructors");
       course.setDescription4("");
       course.setPrice(25);
+      course.setDiscountPrice(25);
       courseRepository.save(course);
     };
   }

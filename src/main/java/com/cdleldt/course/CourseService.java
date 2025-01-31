@@ -24,6 +24,7 @@ public class CourseService {
       responseDTO.setDescription2(course.getDescription2());
       responseDTO.setDescription3(course.getDescription3());
       responseDTO.setDescription4(course.getDescription4());
+      responseDTO.setDiscountPrice(course.getDiscountPrice());
       responseDTO.setPrice(course.getPrice());
       response.add(responseDTO);
     }
